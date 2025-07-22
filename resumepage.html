@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resume - Benjamin Ly</title>
+  <style>
+    :root {
+      --bg-color: rgb(233, 218, 218);
+      --link-color: rgb(6, 6, 248);
+      --marg-padd-val: 0.15rem;
+      --font-color: rgb(255, 255, 255);
+      --head-foot-color: rgb(1,39,53);
+      --body-font-color: black;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: var(--marg-padd-val, 0.15rem);
+      padding: var(--marg-padd-val, 0.15rem);
+    }
+
+    @view-transition {
+      navigation: auto;
+    }
+
+    .navbold {
+      font-weight: bold;
+      font-size: 1.25rem
+    }
+
+    body { /*selector*/
+      font-family: Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg-color, white);
+      
+      header {
+        background-color: var(--head-foot-color, rgb(1,39,53));
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        padding: 2rem 5rem;
+        font-size: 1.75rem;
+      }
+
+      nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        a {
+          color: rgba(7, 43, 56, 0.808);
+          text-decoration: none;
+        }
+      }
+
+      main { 
+        padding: 0.25rem 1rem;
+        color: var(--body-font-color, black);
+        background-color: white;
+        display: flex;
+        flex-direction: flex-wrap;
+
+        #coreInfo {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          margin-top: 1rem;
+        }
+
+        img {
+          float: left;
+          margin-left: 0;
+          width: 30dvw;
+          height: auto;
+        }
+      }
+
+      footer {
+        background-color: var(--head-foot-color, rgb(1,39,53));
+        color: var(--font-color, white);
+        margin-top: 2rem;
+        font-size: 0.80rem;
+        text-align: left;
+
+        a {
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    Resume - Benjamin Ly
+  </header>
+
+  <nav class="navbold">
+    <a href="index.html">Home</a>
+    <a href="aboutmepage.html">About</a>
+    <a href="projectpage.html">Projects</a>
+    <a href="contactpage.html">Contact</a>
+  </nav>
+
+  <main>
+    <figure>
+      <picture>
+        <img src="profpic-temp.jpg" alt="Benjamin Ly">
+      </picture>
+    </figure>
+
+    <div id="coreInfo">
+      <article>
+        <h2>Summary:</h2>
+        Hardworking and tenacious student who is motivated to learn and gain experience within the STEM field, especially relating to improving healthcare. Has had multiple volunteer research experiences pertaining to healthcare.
+      </article>
+
+      <article>
+        <h2>Education</h2>
+        University of California San Diego <br>
+        <abbr title="Bachelors of Science">B.S</abbr>Psychology with Specialization in Human Health <br>
+        Minor: Computer Science
+      </article>
+
+      <article>
+        <h2>Extracurricular Activity</h2>
+        <ul>
+          <li>UCSD Department of Biomedical Informatics Research Internship 2024</li>
+          <li>Dr. Moghimi Volunteer Research Position</li>
+          <li>Dr. Jiun Do Volunteer Research Position</li>
+          <li>Stanford Data Ocean Program</li>
+          <li>Learning-Aligned Employment Program Scholarship (LAEP)</li>
+        </ul>
+      </article>
+
+      <H2>Programming Languages:</H2>
+      <ul>
+        <li id="confident">
+          <label for="p-skill-level">Python:</label>
+          <progress id="p-skill-level" value ="80" max="100">80%</progress>
+        </li>
+        <li id="condifent">
+          <label for="r-skill-level">R-Studio:</label>
+          <progress id="r-skill-level" value ="80" max="100">80%</progress>
+        </li>
+        <li id="weak">
+          <label for="f-skill-level">Fiji image processing:</label>
+          <progress id="f-skill-level" value ="50" max="100">50%</progress>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <strong>For direct messages:</strong>
+    <address>
+      Benjamin Ly <br>
+      <em>Email:</em><a href="mailto:bjly@ucsd.edu">bjly@ucsd.edu</a><br>
+      <em>Linkedin:</em><a href="https://www.linkedin.com/in/benjamin-j-ly/">Click here</a>
+    </address>
+  </footer>
+
+</body>
+</html>

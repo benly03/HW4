@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me - Benjamin Ly</title>
+  <style>
+    :root {
+      --bg-color: rgb(233, 218, 218);
+      --link-color: rgb(6, 6, 248);
+      --marg-padd-val: 0.15rem;
+      --font-color: rgb(255, 255, 255);
+      --head-foot-color: rgb(1,39,53);
+      --body-font-color: black;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: var(--marg-padd-val, 0.15rem);
+      padding: var(--marg-padd-val, 0.15rem);
+    }
+
+    @view-transition {
+      navigation: auto;
+    }
+ 
+    .navbold {
+      font-weight: bold;
+      font-size: 1.25rem
+    }
+
+    body { /*selector*/
+      font-family: Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg-color, white);
+      
+      header {
+        background-color: var(--head-foot-color, rgb(1,39,53));
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        padding: 2rem 5rem;
+        font-size: 1.75rem;
+      }
+
+      nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+        a {
+          color: rgba(7, 43, 56, 0.808);
+          text-decoration: none;
+        }
+      }
+
+      main { 
+        padding: 0.25rem 1rem;
+        color: var(--body-font-color, black);
+        background-color: white;
+
+        #maininfo {
+          display: flex;
+          align-items: column;
+          gap: 1rem;
+          margin-top: 1rem;
+
+          img {
+            width: 30dvw;
+            height: auto;
+          }
+        }
+      }
+
+      footer {
+        background-color: var(--head-foot-color, rgb(1,39,53));
+        color: var(--font-color, white);
+        margin-top: 2rem;
+        font-size: 0.80rem;
+        text-align: left;
+
+        a {
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+
+        img {
+          width: 30dvw;
+          height: auto;
+        }
+
+        #maininfo {
+          flex-direction: column;
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    About Me – Benjamin Ly
+  </header>
+
+  <nav class="navbold">
+    <a href="index.html">Home</a>
+    <a href="resumepage.html">Resume</a>
+    <a href="projectpage.html">Projects</a>
+    <a href="contactpage.html">Contact</a>
+  </nav>
+
+  <main>
+    <div id="maininfo">
+      <figure>
+        <picture>
+          <img src="normalpic-temp.jpg" alt="Benjamin Ly">
+        </picture>
+      </figure>
+
+      <ul>
+        <li><strong>Education:</strong> college major, minor</li>
+        <li><strong>Bio:</strong> explain interests outside of work, hobbies <br></li>
+        <li><strong>Experience:</strong> explain previous experience in other research groups</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <strong>For direct messages:</strong>
+    <address>
+      Benjamin Ly <br>
+      <em>Email:</em><a href="mailto:bjly@ucsd.edu">bjly@ucsd.edu</a><br>
+      <em>Linkedin:</em><a href="https://www.linkedin.com/in/benjamin-j-ly/">Click here</a>
+    </address>
+  </footer>
+
+</body>
+</html>

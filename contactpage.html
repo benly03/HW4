@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Form</title>
+  <style>
+    :root {
+      --bg-color: rgb(233, 218, 218);
+      --link-color: rgb(6, 6, 248);
+      --marg-padd-val: 0.15rem;
+      --font-color: rgb(255, 255, 255);
+      --head-foot-color: rgb(1,39,53);
+      --body-font-color: black;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: var(--marg-padd-val, 0.15rem);
+      padding: var(--marg-padd-val, 0.15rem);
+    }
+
+    @view-transition {
+      navigation: auto;
+    }
+
+    .navbold {
+      font-weight: bold;
+      font-size: 1.25rem
+    }
+
+    body { /*selector*/
+      font-family: Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg-color, white);
+      
+      header {
+        background-color: var(--head-foot-color, rgb(1,39,53));
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        padding: 2rem 5rem;
+        font-size: 1.75rem;
+      }
+
+      nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        a {
+          color: rgba(7, 43, 56, 0.808);
+          text-decoration: none;
+        }
+      }
+
+      main { 
+        padding: 0.25rem 1rem;
+        color: var(--body-font-color, black);
+        background-color: white;
+        display: flex;
+        flex-direction: flex-wrap;
+        margin: auto;
+
+        button {
+          transition: background-color o.3s ease;
+        }
+
+        button:hover {
+          background-color: green;
+        }
+
+        fieldset {
+          margin: auto;
+          
+          form {
+            text-align: center;
+          }
+        }
+      }
+
+      footer {
+        background-color: var(--head-foot-color, rgb(1,39,53));
+        color: var(--font-color, white);
+        margin-top: 2rem;
+        font-size: 0.80rem;
+        text-align: left;
+
+        a {
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      body {
+        font-size: 16px;
+      }
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    Contact Me
+  </header>
+
+  <nav class="navbold">
+    <a href="index.html">Home</a>
+    <a href="aboutmepage.html">About</a>
+    <a href="resumepage.html">Resume</a>
+    <a href="projectpage.html">Project</a>
+  </nav>
+  
+  <main>
+    <fieldset>
+      <form action="https://httpbin.org/post" method="POST">
+        <legend>Contact Form</legend>
+        <label for="first-name">First Name:<br>
+          <input type="text" id="first-name" name="first-name" required><br><br>
+        </label>
+
+        <label for="last-name">Last Name:<br>
+          <input type="text" id="last-name" name="last-name" required><br><br>
+        </label>
+        
+        <label for="email">Email:<br>
+          <input type="email" id="email" name="email" required><br><br>
+        </label>
+        
+        <label for="subject">Subject:
+          <select id="subject" name="subject" required>
+            <optgroup label ="Group1"> 
+              <option value="Option1">Option1</option>
+              <option value="Option2">Option2</option>
+            </optgroup> 
+            <optgroup label = "Group2">
+              <option value="Option3">Option3</option>
+              <option value="Option4">Option4</option>
+            </optgroup>
+            <option value="" >Default</option>
+          </select><br><br>
+        </label>
+
+        <label for="message">Message:<br>
+          <textarea id="message" name="message" rows="5" cols="40" required></textarea><br><br>
+        </label>
+
+        <p>Press <kbd>submit</kbd> when done to submit message! (<code>button</code> doesn't actually work yet...)</p>
+        <button type="button">Submit</button>
+      </form>
+    </fieldset>
+  </main>
+
+  <footer>
+    <strong>For direct messages:</strong>
+    <address>
+        Benjamin Ly <br>
+        <em>Email:</em><a href="mailto:bjly@ucsd.edu">bjly@ucsd.edu</a><br>
+        <em>Linkedin:</em><a href="https://www.linkedin.com/in/benjamin-j-ly/">Click here</a>
+    </address>
+  </footer>
+
+</body>
+</html>

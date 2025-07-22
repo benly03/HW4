@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Project</title>
+  <style>
+    :root {
+      --bg-color: rgb(233, 218, 218);
+      --link-color: rgb(6, 6, 248);
+      --marg-padd-val: 0.15rem;
+      --font-color: rgb(255, 255, 255);
+      --head-foot-color: rgb(1,39,53);
+      --body-font-color: black;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: var(--marg-padd-val, 0.15rem);
+      padding: var(--marg-padd-val, 0.15rem);
+
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+
+    @view-transition {
+      navigation: auto;
+    }
+
+    .navbold {
+      font-weight: bold;
+      font-size: 1.25rem
+    }
+
+    body { /*selector*/
+      font-family: Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg-color, white);
+      
+      header {
+        background-color: var(--head-foot-color, rgb(1,39,53));
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        padding: 2rem 5rem;
+        font-size: 1.75rem;
+      }
+
+      nav {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        a {
+          color: rgba(7, 43, 56, 0.808);
+          text-decoration: none;
+        }
+      }
+
+      main { 
+        padding: 0.25rem 1rem;
+        color: var(--body-font-color, black);
+        background-color: white;
+        display: flex;
+        flex-direction: flex-wrap;
+
+        #projectpresent {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          margin-top: 1rem;
+        }
+
+        p {
+          white-space: wrap;
+          width: 50dvw;
+        }
+
+        #projectsources {
+          white-space: wrap;
+          width: 40dvw;
+        }
+
+        iframe {
+            width: 40dvw;
+            height: 50vh;
+        } 
+      }
+
+      footer {
+        background-color: var(--head-foot-color, rgb(1,39,53));
+        color: var(--font-color, white);
+        margin-top: 2rem;
+        font-size: 0.80rem;
+        text-align: left;
+
+        a {
+          color: white;
+          text-decoration: none;
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      main {
+        display: flex;
+        flex-direction: column;
+
+        #projectpresent {
+          flex-direction: column;
+        }
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    Projects - Benjamin Ly
+  </header>
+
+  <nav class="navbold">
+    <a href="index.html">Home</a>
+    <a href="aboutmepage.html">About</a>
+    <a href="resumepage.html">Resume</a>
+    <a href="contactpage.html">Contact</a>
+  </nav>
+
+  <main>
+      <div id="project-descrip">
+          <article>
+              <h2><em>Risk Factor Analysis of Peritoneal Carcinomatosis for Young Adults</em></h2>
+          </article>
+
+          <details id="fulldescription">
+              <summary>Full Project Description</summary>
+              <p>My research project aims to do a risk factor analysis for young adults with peritoneal carcinomatosis. <dfn>Peritoneal carcinomatosis</dfn> is cancer developing in the abdominal membrane that lines its organs. Aiming to identify plausible risk factors for early onset pertioneal carcinomatosis with patient data from NCDB 2004-2020 database. Main tools used were R-Studio for running analysis and univariable and multivariable logistic regression for predictive analysis. The biggest challenge in completing this project was learning how to use R-Studio effectively and efficiently in the short 10 week duration of the internship. More specifically learning how to manipulate databases correctly so as to not lose important data points or overlook potential variables/risk factors.</p> 
+              <em>Research was supported by UCSD HSI-DDI</em>
+          </details>
+
+          <section>
+              <h2>Tools used:</h2>
+              <ul>
+                  <li>R-Studio</li>
+                  <li>Microsoft powerpoint</li>
+                  <li>Excel</li>
+              </ul>
+          </section>
+
+          <section>
+              <h2>Analysis method:</h2>
+              <ul>
+                  <li>Univariable Logistic regression</li>
+                  <li>Multivariable Logistic regression</li>
+              </ul>
+          </section>
+
+          <article id="results">
+              <h2>Results</h2> 
+              <p>Risk factor analysis showed many factors could possibly effect early development of Carcinomatosis but main risk factors include;</p>
+          </article>
+
+          <ol>
+              <li>Increasing age</li>
+              <li>Black race</li>
+              <li>Private insurance</li>
+              <li>Increasing tumor stage</li>
+          </ol>
+          <form>
+              <div>If you would like to further discuss my project, tell me what you're interested in asking and how to contact you! You can do that<a href="contactpage.html">here.</a>
+              </div>
+          </form>
+      </div>
+      
+      <div id="projectpresent">
+          <h3>View Full Project PDF</h3>
+      
+          <iframe src="dbmi-pres.pdf" title="Risk Factor Analysis for Young Onset Peritoneal Carcinomatosis"></iframe>
+
+          <!--<dialog open>Scroll through pdf for full view of project</dialog>-->
+
+          <details id="projectsources">
+              <summary>Literature sources referenced</summary>
+              <cite>
+                  Danial D, Youssef ED, Maryam BM, Mohammad A, Moein BM, Liliane D. Risk Factors of Young-Onset Colorectal Cancer: Analysis of a Large Population-Based Registry. Can J Gastroenterol Hepatol. 2022 Feb 16;2022:3582443. doi: 10.1155/2022/3582443. PMID: 35223684; PMCID: PMC8866030.
+              </cite>
+              <blockquote cite="https://pubmed.ncbi.nlm.nih.gov/35223684/">
+                  Currently, this is an expansive study investigating the risk factors for early-onset CRC. The analysis showed factors such as family and individual history of IBD to have high association with early onset. Notably, an individual history of breast malignancy was strongly associated with early-onset CRC.
+              </blockquote>
+          </details>
+
+          <aside>If the PDF does not display, you can <a href="dbmi-pres.pdf">click here to download it</a></aside>
+      </div>
+    </main>
+
+    <footer>
+        <strong>For direct messages:</strong>
+        <address>
+            Benjamin Ly <br>
+            <em>Email:</em><a href="mailto:bjly@ucsd.edu">bjly@ucsd.edu</a><br>
+            <em>Linkedin:</em><a href="https://www.linkedin.com/in/benjamin-j-ly/">Click here</a>
+        </address>
+    </footer>
+</body>
+</html>
