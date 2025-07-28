@@ -10,7 +10,26 @@
       --marg-padd-val: 0.15rem;
       --font-color: rgb(255, 255, 255);
       --head-foot-color: rgb(1,39,53);
-      --body-font-color: black;
+      --main-font-color: black;
+      --nav-text-color: rgba(7, 43, 56, 0.808);
+      --main-bg: white;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: black;
+      --text-color: white;
+      --nav-text-color: white;
+      --main-bg: rgb(54, 54, 54);
+      --main-font-color: white;
+      --link-color: rgb(84, 84, 255);
+    }
+
+    /*toggle button*/
+    #theme-toggle { 
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: var(--text-color);
     }
 
     * {
@@ -33,61 +52,61 @@
       margin: 0;
       padding: 0;
       background: var(--bg-color, white);
-      
-      header {
-        background-color: var(--head-foot-color, rgb(1,39,53));
+    }
+
+    header {
+      background-color: var(--head-foot-color, rgb(1,39,53));
+      color: var(--font-color);
+      text-align: center;
+      font-weight: bold;
+      padding: 2rem 5rem;
+      font-size: 1.75rem;
+    }
+
+    nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      a {
+        color: var(--nav-text-color);
+        text-decoration: none;
+      }
+    }
+
+    main { 
+      padding: 0.25rem 1rem;
+      color: var(--main-font-color, black);
+      background-color: var(--main-bg);
+      display: flex;
+      flex-direction: flex-wrap;
+    }
+
+    #coreInfo {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    img {
+      float: left;
+      margin-left: 0;
+      width: 30dvw;
+      height: auto;
+    }
+    
+    footer {
+      background-color: var(--head-foot-color, rgb(1,39,53));
+      color: var(--font-color, white);
+      margin-top: 2rem;
+      font-size: 0.80rem;
+      text-align: left;
+
+      a {
         color: white;
-        text-align: center;
-        font-weight: bold;
-        padding: 2rem 5rem;
-        font-size: 1.75rem;
-      }
-
-      nav {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-
-        a {
-          color: rgba(7, 43, 56, 0.808);
-          text-decoration: none;
-        }
-      }
-
-      main { 
-        padding: 0.25rem 1rem;
-        color: var(--body-font-color, black);
-        background-color: white;
-        display: flex;
-        flex-direction: flex-wrap;
-
-        #coreInfo {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-          margin-top: 1rem;
-        }
-
-        img {
-          float: left;
-          margin-left: 0;
-          width: 30dvw;
-          height: auto;
-        }
-      }
-
-      footer {
-        background-color: var(--head-foot-color, rgb(1,39,53));
-        color: var(--font-color, white);
-        margin-top: 2rem;
-        font-size: 0.80rem;
-        text-align: left;
-
-        a {
-          color: white;
-          text-decoration: none;
-        }
+        text-decoration: none;
       }
     }
 
@@ -107,6 +126,7 @@
     <a href="aboutmepage.html">About</a>
     <a href="projectpage.html">Projects</a>
     <a href="contactpage.html">Contact</a>
+    <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
   </nav>
 
   <main>
@@ -165,7 +185,26 @@
       <em>Email:</em><a href="mailto:bjly@ucsd.edu">bjly@ucsd.edu</a><br>
       <em>Linkedin:</em><a href="https://www.linkedin.com/in/benjamin-j-ly/">Click here</a>
     </address>
+    <noscript>To use dark mode, please ensure JavaScript is enabled</noscript>
   </footer>
+
+<script>
+  const toggleButton = document.getElementById('theme-toggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  // Set theme from localStorage or system default
+  const savedTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  toggleButton.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+  toggleButton.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    toggleButton.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+  });
+</script>
 
 </body>
 </html>

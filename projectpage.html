@@ -10,7 +10,26 @@
       --marg-padd-val: 0.15rem;
       --font-color: rgb(255, 255, 255);
       --head-foot-color: rgb(1,39,53);
-      --body-font-color: black;
+      --main-font-color: black;
+      --nav-text-color: rgba(7, 43, 56, 0.808);
+      --main-bg: white;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: black;
+      --text-color: white;
+      --nav-text-color: white;
+      --main-bg: rgb(54, 54, 54);
+      --main-font-color: white;
+      --link-color: rgb(84, 84, 255);
+    }
+
+    /*toggle button*/
+    #theme-toggle { 
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: var(--text-color);
     }
 
     * {
@@ -37,69 +56,69 @@
       margin: 0;
       padding: 0;
       background: var(--bg-color, white);
-      
-      header {
-        background-color: var(--head-foot-color, rgb(1,39,53));
+    }
+
+    header {
+      background-color: var(--head-foot-color, rgb(1,39,53));
+      color: var(--font-color, white);
+      text-align: center;
+      font-weight: bold;
+      padding: 2rem 5rem;
+      font-size: 1.75rem;
+    }
+
+    nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      a {
+        color: var(--nav-text-color);
+        text-decoration: none;
+      }
+    }
+
+    main { 
+      padding: 0.25rem 1rem;
+      color: var(--main-font-color, black);
+      background-color: var(--main-bg);
+      display: flex;
+      flex-direction: flex-wrap;
+    }
+
+    #projectpresent {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    p {
+      white-space: wrap;
+      width: 50dvw;
+    }
+
+    #projectsources {
+      white-space: wrap;
+      width: 40dvw;
+    }
+
+    iframe {
+        width: 40dvw;
+        height: 50vh;
+    } 
+
+    footer {
+      background-color: var(--head-foot-color, rgb(1,39,53));
+      color: var(--font-color, white);
+      margin-top: 2rem;
+      font-size: 0.80rem;
+      text-align: left;
+
+      a {
         color: white;
-        text-align: center;
-        font-weight: bold;
-        padding: 2rem 5rem;
-        font-size: 1.75rem;
-      }
-
-      nav {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-
-        a {
-          color: rgba(7, 43, 56, 0.808);
-          text-decoration: none;
-        }
-      }
-
-      main { 
-        padding: 0.25rem 1rem;
-        color: var(--body-font-color, black);
-        background-color: white;
-        display: flex;
-        flex-direction: flex-wrap;
-
-        #projectpresent {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-          margin-top: 1rem;
-        }
-
-        p {
-          white-space: wrap;
-          width: 50dvw;
-        }
-
-        #projectsources {
-          white-space: wrap;
-          width: 40dvw;
-        }
-
-        iframe {
-            width: 40dvw;
-            height: 50vh;
-        } 
-      }
-
-      footer {
-        background-color: var(--head-foot-color, rgb(1,39,53));
-        color: var(--font-color, white);
-        margin-top: 2rem;
-        font-size: 0.80rem;
-        text-align: left;
-
-        a {
-          color: white;
-          text-decoration: none;
-        }
+        text-decoration: none;
       }
     }
 
@@ -126,72 +145,73 @@
     <a href="aboutmepage.html">About</a>
     <a href="resumepage.html">Resume</a>
     <a href="contactpage.html">Contact</a>
+    <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
   </nav>
 
   <main>
-      <div id="project-descrip">
-          <article>
-              <h2><em>Risk Factor Analysis of Peritoneal Carcinomatosis for Young Adults</em></h2>
-          </article>
+    <div id="project-descrip">
+        <article>
+            <h2><em>Risk Factor Analysis of Peritoneal Carcinomatosis for Young Adults</em></h2>
+        </article>
 
-          <details id="fulldescription">
-              <summary>Full Project Description</summary>
-              <p>My research project aims to do a risk factor analysis for young adults with peritoneal carcinomatosis. <dfn>Peritoneal carcinomatosis</dfn> is cancer developing in the abdominal membrane that lines its organs. Aiming to identify plausible risk factors for early onset pertioneal carcinomatosis with patient data from NCDB 2004-2020 database. Main tools used were R-Studio for running analysis and univariable and multivariable logistic regression for predictive analysis. The biggest challenge in completing this project was learning how to use R-Studio effectively and efficiently in the short 10 week duration of the internship. More specifically learning how to manipulate databases correctly so as to not lose important data points or overlook potential variables/risk factors.</p> 
-              <em>Research was supported by UCSD HSI-DDI</em>
-          </details>
+        <details id="fulldescription">
+            <summary>Full Project Description</summary>
+            <p>My research project aims to do a risk factor analysis for young adults with peritoneal carcinomatosis. <dfn>Peritoneal carcinomatosis</dfn> is cancer developing in the abdominal membrane that lines its organs. Aiming to identify plausible risk factors for early onset pertioneal carcinomatosis with patient data from NCDB 2004-2020 database. Main tools used were R-Studio for running analysis and univariable and multivariable logistic regression for predictive analysis. The biggest challenge in completing this project was learning how to use R-Studio effectively and efficiently in the short 10 week duration of the internship. More specifically learning how to manipulate databases correctly so as to not lose important data points or overlook potential variables/risk factors.</p> 
+            <em>Research was supported by UCSD HSI-DDI</em>
+        </details>
 
-          <section>
-              <h2>Tools used:</h2>
-              <ul>
-                  <li>R-Studio</li>
-                  <li>Microsoft powerpoint</li>
-                  <li>Excel</li>
-              </ul>
-          </section>
+        <section>
+            <h2>Tools used:</h2>
+            <ul>
+                <li>R-Studio</li>
+                <li>Microsoft powerpoint</li>
+                <li>Excel</li>
+            </ul>
+        </section>
 
-          <section>
-              <h2>Analysis method:</h2>
-              <ul>
-                  <li>Univariable Logistic regression</li>
-                  <li>Multivariable Logistic regression</li>
-              </ul>
-          </section>
+        <section>
+            <h2>Analysis method:</h2>
+            <ul>
+                <li>Univariable Logistic regression</li>
+                <li>Multivariable Logistic regression</li>
+            </ul>
+        </section>
 
-          <article id="results">
-              <h2>Results</h2> 
-              <p>Risk factor analysis showed many factors could possibly effect early development of Carcinomatosis but main risk factors include;</p>
-          </article>
+        <article id="results">
+            <h2>Results</h2> 
+            <p>Risk factor analysis showed many factors could possibly effect early development of Carcinomatosis but main risk factors include;</p>
+        </article>
 
-          <ol>
-              <li>Increasing age</li>
-              <li>Black race</li>
-              <li>Private insurance</li>
-              <li>Increasing tumor stage</li>
-          </ol>
-          <form>
-              <div>If you would like to further discuss my project, tell me what you're interested in asking and how to contact you! You can do that<a href="contactpage.html">here.</a>
-              </div>
-          </form>
-      </div>
-      
-      <div id="projectpresent">
-          <h3>View Full Project PDF</h3>
-      
-          <iframe src="dbmi-pres.pdf" title="Risk Factor Analysis for Young Onset Peritoneal Carcinomatosis"></iframe>
+        <ol>
+            <li>Increasing age</li>
+            <li>Black race</li>
+            <li>Private insurance</li>
+            <li>Increasing tumor stage</li>
+        </ol>
+        <form>
+            <div>If you would like to further discuss my project, tell me what you're interested in asking and how to contact you! You can do that<a href="contactpage.html">here.</a>
+            </div>
+        </form>
+    </div>
+    
+    <div id="projectpresent">
+        <h3>View Full Project PDF</h3>
+    
+        <iframe src="dbmi-pres.pdf" title="Risk Factor Analysis for Young Onset Peritoneal Carcinomatosis"></iframe>
 
-          <!--<dialog open>Scroll through pdf for full view of project</dialog>-->
+        <!--<dialog open>Scroll through pdf for full view of project</dialog>-->
 
-          <details id="projectsources">
-              <summary>Literature sources referenced</summary>
-              <cite>
-                  Danial D, Youssef ED, Maryam BM, Mohammad A, Moein BM, Liliane D. Risk Factors of Young-Onset Colorectal Cancer: Analysis of a Large Population-Based Registry. Can J Gastroenterol Hepatol. 2022 Feb 16;2022:3582443. doi: 10.1155/2022/3582443. PMID: 35223684; PMCID: PMC8866030.
-              </cite>
-              <blockquote cite="https://pubmed.ncbi.nlm.nih.gov/35223684/">
-                  Currently, this is an expansive study investigating the risk factors for early-onset CRC. The analysis showed factors such as family and individual history of IBD to have high association with early onset. Notably, an individual history of breast malignancy was strongly associated with early-onset CRC.
-              </blockquote>
-          </details>
+        <details id="projectsources">
+            <summary>Literature sources referenced</summary>
+            <cite>
+                Danial D, Youssef ED, Maryam BM, Mohammad A, Moein BM, Liliane D. Risk Factors of Young-Onset Colorectal Cancer: Analysis of a Large Population-Based Registry. Can J Gastroenterol Hepatol. 2022 Feb 16;2022:3582443. doi: 10.1155/2022/3582443. PMID: 35223684; PMCID: PMC8866030.
+            </cite>
+            <blockquote cite="https://pubmed.ncbi.nlm.nih.gov/35223684/">
+                Currently, this is an expansive study investigating the risk factors for early-onset CRC. The analysis showed factors such as family and individual history of IBD to have high association with early onset. Notably, an individual history of breast malignancy was strongly associated with early-onset CRC.
+            </blockquote>
+        </details>
 
-          <aside>If the PDF does not display, you can <a href="dbmi-pres.pdf">click here to download it</a></aside>
+        <aside>If the PDF does not display, you can <a href="dbmi-pres.pdf">click here to download it</a></aside>
       </div>
     </main>
 
@@ -202,6 +222,25 @@
             <em>Email:</em><a href="mailto:bjly@ucsd.edu">bjly@ucsd.edu</a><br>
             <em>Linkedin:</em><a href="https://www.linkedin.com/in/benjamin-j-ly/">Click here</a>
         </address>
+        <noscript>To use dark mode, please ensure JavaScript is enabled</noscript>
     </footer>
+
+<script>
+  const toggleButton = document.getElementById('theme-toggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  // Set theme from localStorage or system default
+  const savedTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  toggleButton.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+  toggleButton.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    toggleButton.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+  });
+</script>
 </body>
 </html>
