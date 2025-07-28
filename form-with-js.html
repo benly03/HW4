@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Form</title>
+  <style>
+    :root {
+      --bg-color: rgb(233, 218, 218);
+      --link-color: rgb(6, 6, 248);
+      --marg-padd-val: 0.15rem;
+      --font-color: rgb(255, 255, 255);
+      --head-foot-color: rgb(1,39,53);
+      --main-font-color: black;
+      --nav-text-color: rgba(7, 43, 56, 0.808);
+      --main-bg: white;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: black;
+      --text-color: white;
+      --nav-text-color: white;
+      --main-bg: rgb(54, 54, 54);
+      --main-font-color: white
+    }
+
+    /*toggle button*/
+    #theme-toggle { 
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: var(--text-color);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: var(--marg-padd-val, 0.15rem);
+      padding: var(--marg-padd-val, 0.15rem);
+    }
+
+    @view-transition {
+      navigation: auto;
+    }
+
+    .navbold {
+      font-weight: bold;
+      font-size: 1.25rem
+    }
+
+    body { /*selector*/
+      font-family: Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg-color, lightgray);
+      transition: background-color 0.3s, color 0.3s
+    }
+
+    header {
+      background-color: var(--head-foot-color, rgb(1,39,53));
+      color: white;
+      text-align: center;
+      font-weight: bold;
+      padding: 2rem 5rem;
+      font-size: 1.75rem;
+    }
+
+    nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      a {
+        color: var(--nav-text-color);
+        text-decoration: none;
+      }
+    }
+
+    main { 
+      padding: 0.25rem 1rem;
+      color: var(--main-font-color, black);
+      background-color: var(--main-bg);
+      display: flex;
+      flex-direction: flex-wrap;
+      margin: auto;
+    }
+
+    button {
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: green;
+    }
+
+    fieldset {
+      border: 0;
+      gap: 2rem;
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+      
+      form-field {
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    label {
+      &::before {
+        content: "(*)";
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+      width: 485px;
+    }
+
+    footer {
+      background-color: var(--head-foot-color, rgb(1,39,53));
+      color: var(--font-color, white);
+      margin-top: 2rem;
+      font-size: 0.80rem;
+      text-align: left;
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+
+    .warning {
+      color: red;
+      font-weight: bold;
+    }
+
+    @media screen and (max-width: 600px) {
+      body {
+        font-size: 16px;
+      }
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    Contact Me
+  </header>
+
+  <nav class="navbold">
+    <a href="index.html">Home</a>
+    <a href="aboutmepage.html">About</a>
+    <a href="resumepage.html">Resume</a>
+    <a href="projectpage.html">Project</a>
+    <button id="theme-toggle" aria-label="Toggle theme">🌙</button>
+  </nav>
+  
+  <main>
+    <fieldset>
+      <form action="https://httpbin.org/post" method="POST">
+        <input type="hidden" name="possible_bot" value="true">
+        
+        <form-field>
+          <label for="first-name">
+            First Name:
+          </label> 
+          <input type="text" id="first-name" name="first-name" placeholder="John" required minlength="2" maxlength="50">
+          <span class="error" aria-live="polite"></span>
+        </form-field>
+
+        <form-field>
+          <label for="last-name">
+            Last Name:
+          </label>
+          <input type="text" id="last-name" name="last-name" placeholder="Doe" required minlength="2" maxlength="50">
+          <span class="error" aria-live="polite"></span>
+        </form-field>
+        
+        <form-field novalidate>
+          <label for="email">
+            Email:
+          </label>
+          <input type="email" id="email" name="email" placeholder="johndoe@example.com" required minlength="5">                      
+          <span class="error" aria-live="polite"></span>
+        </form-field>
+        
+        <form-field>
+          <label for="subject">Subject:
+            <select id="subject" name="subject" required>
+              <optgroup label ="Group1"> 
+                <option value="Option1">Option1</option>
+                <option value="Option2">Option2</option>
+              </optgroup> 
+              <optgroup label = "Group2">
+                <option value="Option3">Option3</option>
+                <option value="Option4">Option4</option>
+              </optgroup>
+              <option value="" >Default</option>
+            </select>
+          </label>
+        </form-field>
+
+        <form-field id="message-field">
+          <label for="message">Message:
+            <br>
+            <textarea id="message" name="message" placeholder="Message" required minlength="2" maxlength="350"></textarea>
+            <div id="char-count">350 characters remaining</div>
+            <span class="error" aria-live="polite"></span>
+          </label>
+        </form-field>
+        
+        <input type="hidden" name="form-errors" id="form-errors">
+
+        <p>Press <kbd>submit</kbd> when done to submit message!</p>
+        <button type="submit">Submit</button>
+      </form>
+    </fieldset>
+  </main>
+
+  <footer>
+    <strong>For direct messages:</strong>
+    <address>
+        Benjamin Ly <br>
+        <em>Email:</em><a href="mailto:bjly@ucsd.edu">bjly@ucsd.edu</a><br>
+        <em>Linkedin:</em><a href="https://www.linkedin.com/in/benjamin-j-ly/">Click here</a>
+    </address>
+    <noscript>To use dark mode, please ensure JavaScript is enabled</noscript>
+  </footer>
+
+<script>
+  const form = document.getElementById("form");
+  const email = document.getElementById("email");
+  const firstName = document.getElementById("first-name");
+  const lastName = document.getElementById("last-name");
+  const message = document.getElementById("message");
+  const hiddenErrors = document.getElementById("form-errors");
+
+  let form_errors = [];
+
+  function recordError(field, message, value) {
+
+    // Only record if there's an actual message
+    if (message) {
+      form_errors.push({
+        field: field,
+        error: message,
+        value: value
+      });
+    }
+
+    // Update hidden input
+    hiddenErrors.value = JSON.stringify(form_errors);
+  }
+
+  function validateField(inputEl, fieldName) {
+    if (inputEl.validity.valid) {
+      recordError(fieldName, "", inputEl.value);
+    } else {
+      let msg = inputEl.validationMessage;
+      recordError(fieldName, msg, inputEl.value);
+    }
+  }
+
+  // Attach event listeners for live validation tracking
+  [ [firstName, "first-name"],
+    [lastName, "last-name"],
+    [email, "email"],
+    [message, "message"]
+  ].forEach(([inputEl, fieldName]) => {
+    inputEl.addEventListener("input", () => validateField(inputEl, fieldName));
+    inputEl.addEventListener("blur", () => validateField(inputEl, fieldName));
+  });
+
+  // Final check before submitting
+  form.addEventListener("submit", (event) => {
+    console.log("Submit button hit");
+    validateField(firstName, "first-name");
+    validateField(lastName, "last-name");
+    validateField(email, "email");
+    validateField(message, "message");
+
+    hiddenErrors.value = JSON.stringify(form_errors);
+
+    if (form_errors.length > 0) {
+      console.warn("Blocked submit due to errors:", form_errors);
+    }
+  });
+</script>
+
+<script>
+  const toggleButton = document.getElementById('theme-toggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+  //dark/light mode toggle
+  const savedTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  toggleButton.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+
+  toggleButton.addEventListener('click', () => {
+    const currTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    toggleButton.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+  });
+</script>
+
+<script> //special character limiting
+  function limitInput(inputElem, allowPattern) {
+    function filterInput() {
+      let currVal = inputElem.value;
+      inputElem.value = currVal.replace(allowPattern, '');
+    }
+
+    inputElem.addEventListener("focus", () => {
+      inputElem.addEventListener("input", filterInput);
+    });
+  }
+
+  document.getElementById('first-name');
+  document.getElementById('last-name');
+  const allowedChars = /[^a-zA-z\s]/g;
+
+  limitInput(firstName, allowedChars);
+  limitInput(lastName, allowedChars);
+
+</script>
+
+
+<script> //email validation
+  const emailError = document.querySelector("#email + span.error");
+
+  let emailClickFocus = false;
+
+  email.addEventListener("focus", () => {
+    emailClickFocus = true;
+  });
+
+  email.addEventListener("input", () => {
+    email.setCustomValidity("");
+
+    if (emailClickFocus && !email.validity.valid) {
+      showError();
+      email.classList.add("warning");
+    } else {
+      emailError.textContent="";
+      emailError.className="error";
+      email.classList.remove("warning", "error");
+    }
+  });
+
+  function showError() {
+    let errorMess = "";
+
+    if (email.validity.valueMissing) {
+      errorMess = 'You need to enter an email address.';
+    } else if (email.validity.typeMismatch) {
+      errorMess = 'Entered value needs to be an email address.';
+    } else if (email.validity.tooShort) {
+      errorMess = 'Email should at least be 5 characters';
+    }
+
+    if (errorMess) { //if error message returned
+      email.setCustomValidity(errorMess);
+      emailError.textContent = errorMess;
+      emailError.className = "error active";
+    }
+
+    email.classList.remove("warning");
+    email.classList.add("error");
+  };
+
+</script> 
+
+<script>
+  const charCount = document.getElementById("char-count");
+  const maxChars = message.maxLength;
+
+  message.addEventListener("input", (event) => {
+    const remaining = maxChars-message.value.length;
+    charCount.textContent = `${remaining} characters remaining`;
+
+    charCount.className='';
+    message.classList.remove("warning", "error");
+
+    if (remaining <= 30) {
+      charCount.classList.add("warning");
+    }
+  });
+</script>
+</body>
+</html>
